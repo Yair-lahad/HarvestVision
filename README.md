@@ -47,10 +47,14 @@ pip install -r requirements.txt
 python src/main.py --image data/sample_oranges.jpg
 ```
 
+```bash
+python src/main.py --video data/Orange-Harvestings.mp4
+```
+
 To process only part of a video, select a time window:
 
 ```bash
-python src/main.py --video data/orchard_clip.webm --start-sec 7 --end-sec 30
+python src/main.py --video data/Orange-Harvestings.mp4 --start-sec 7 --end-sec 30
 ```
 
 

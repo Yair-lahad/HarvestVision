@@ -96,7 +96,11 @@ def resolve_input_path(path: str | Path) -> Path:
     if candidate.exists():
         return candidate
 
-    return config.first_file(config.DATA_DIR, config.VIDEO_SUFFIXES) or candidate
+    fallback = config.first_file(config.DATA_DIR, config.VIDEO_SUFFIXES)
+    if fallback is not None:
+        print(f"Warning: video not found at {candidate}; using {fallback} instead", flush=True)
+        return fallback
+    return candidate
 
 
 def validate_window(start_sec: float, end_sec: float | None) -> None:
