@@ -21,6 +21,9 @@ At a high level:
 * `src/tracker.py` — links detections across frames by object position
 * `src/counter.py` — tracks unique fruit IDs and total counts
 * `src/main.py` — runs the detection pipeline on images or videos
+* `data/` — hold raw data to analyze, gitignored
+* `results/<timestamp>` — saves each run results: annotated and json helper, gitignored
+
 
 ## Why this matters
 

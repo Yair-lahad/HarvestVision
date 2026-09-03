@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-from typing import Dict, List, Tuple
-
 import numpy as np
 
 
@@ -10,8 +8,8 @@ class FruitTracker:
         self.iou_threshold = iou_threshold
         self.max_age = max_age
         self.next_id = 1
-        self.active: Dict[int, np.ndarray] = {}
-        self.ages: Dict[int, int] = {}
+        self.active: dict[int, np.ndarray] = {}
+        self.ages: dict[int, int] = {}
 
     @staticmethod
     def _iou(box_a: np.ndarray, box_b: np.ndarray) -> float:
@@ -31,10 +29,10 @@ class FruitTracker:
             return 0.0
         return inter / union
 
-    def update(self, boxes: List[Tuple[float, float, float, float]]):
+    def update(self, boxes: list[tuple[float, float, float, float]]):
         """Match detections to tracks by IoU and keep only valid aged tracks."""
-        next_active: Dict[int, np.ndarray] = {}
-        next_ages: Dict[int, int] = {}
+        next_active: dict[int, np.ndarray] = {}
+        next_ages: dict[int, int] = {}
         assigned = set()
 
         for box in boxes:
@@ -69,4 +67,4 @@ class FruitTracker:
         self.active = next_active
         self.ages = next_ages
 
-        return [(track_id, tuple(float(v) for v in box.tolist())) for track_id, box in self.active.items()]
+        return [(track_id, tuple(box.tolist())) for track_id, box in self.active.items()]
