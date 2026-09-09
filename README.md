@@ -4,6 +4,9 @@ HarvestVision is a small computer vision project for detecting and tracking frui
 
 The goal is to build a simple but clean pipeline that starts with raw input and ends with a fruit count.
 
+<img width="956" height="510" alt="image" src="https://github.com/user-attachments/assets/f1aeb1f1-3e05-4f1e-8efb-d75a39e234b6" />
+
+
 ## Pipeline
 
 `image/video → detection → tracking → fruit count`
